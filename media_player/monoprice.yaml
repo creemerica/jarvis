@@ -1,0 +1,10 @@
+- platform: monoprice
+  port: /dev/ttyUSB0
+  zones:
+    11:
+      name: Living Room
+  sources:
+    1: 
+      name: AirPlay
+    5:
+      name: Chromecast

@@ -1,0 +1,8 @@
+- platform: yr
+- platform: random
+  name: Pin Code
+  minimum: 1000
+  maximum: 9999
+  scan_interval: 86400
+- platform: travisci
+  api_key: !secret github_api

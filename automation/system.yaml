@@ -1,0 +1,26 @@
+- alias: System Startup Notification
+  trigger:
+    platform: homeassistant
+    event: start
+  action:
+    service: notify.ios_spencer_iphone
+    data:
+      message: 'Home Assistant back online!'
+
+- alias: System Shutdown Notification
+  trigger:
+    platform: homeassistant
+    event: shutdown
+  action:
+    service: notify.ios_spencer_iphone
+    data:
+      message: 'Home Assistant is going down!'
+
+- alias: System Update notifications
+  trigger:
+    - platform: state
+      entity_id: updater.updater
+  action:
+    service: notify.ios_spencer_iphone
+    data:
+      message: 'There is a new Home Assistant release available.'

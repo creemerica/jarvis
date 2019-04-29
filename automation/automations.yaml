@@ -1,0 +1,28 @@
+- alias: Generate New Lock Code
+  trigger:
+    platform: time
+    at: '07:00:00'
+  condition:
+  - condition: time
+    weekday:
+      - sun
+  action:
+    service: script.reload_front_door_code
+- alias: Turn on porch light at dusk
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: -2.5
+  action:
+    service: switch.turn_on
+    entity_id: switch.porch_switch
+- alias: Turn off porch light in the morning
+  trigger:
+    - platform: time
+      hours: 4
+      minutes: 0
+      seconds: 0
+  action:
+    service: switch.turn_off
+    entity_id: switch.porch_switch

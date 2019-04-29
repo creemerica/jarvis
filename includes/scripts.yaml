@@ -1,0 +1,28 @@
+get_latest_config:
+  alias: 'Update config'
+  sequence:
+    - service: shell_command.git_pull
+    - service: homeassistant.restart
+
+reload_front_door_code:
+  alias: 'Generate Lock Code'
+  sequence:
+    - service: lock.set_usercode
+      data:
+        node_id: 11
+        code_slot: 2
+      data_template:
+        usercode: "{{states.sensor.pin_code.state}}"
+    - service: lock.set_usercode
+      data:
+        node_id: 12
+        code_slot: 2
+      data_template:
+        usercode: "{{states.sensor.pin_code.state}}"
+    - service: notify.twilio_sms
+      data:
+        message: "Hello!  You can use the code {{ states.sensor.pin_code.state }} to get into the house this week."
+        target:
+          - !secret spencer_phone_num
+          - !secret rose_phone_num
+          - !secret rose_mom_phone_num

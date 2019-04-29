@@ -1,0 +1,10 @@
+.DS_Store
+*.conf
+secrets.yaml
+.HA_VERSION
+.google.token
+.uuid
+deps/
+home-assistant*.log
+home-assistant*.db
+*.pyc

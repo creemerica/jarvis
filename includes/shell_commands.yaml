@@ -1,0 +1,5 @@
+##########################
+# Shell commands
+##########################
+
+git_pull: 'bash /home/spencer/.homeassistant/bash/git_pull.sh'

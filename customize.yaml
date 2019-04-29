@@ -1,0 +1,8 @@
+sensor.creemericajarvis_last_build_finished_at:
+  hidden: true
+sensor.creemericajarvis_last_build_id:
+  hidden: true
+sensor.creemericajarvis_last_build_started_at:
+  hidden: true
+sensor.creemericajarvis_state:
+  hidden: true
