@@ -30,6 +30,9 @@ sensor:
 tts:
   - platform: google_translate
 
-group: !include groups.yaml
-automation: !include automations.yaml
-script: !include scripts.yaml
+media_player: !include_dir_merge_list media_player
+group: !include includes/groups.yaml
+automation: !include_dir_merge_list automation/
+script: !include includes/scripts.yaml
+sensor: !include includes/sensors.yaml
+shell_command: !include includes/shell_commands.yaml
