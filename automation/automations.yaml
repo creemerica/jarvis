@@ -20,9 +20,7 @@
 - alias: Turn off porch light in the morning
   trigger:
     - platform: time
-      hours: 4
-      minutes: 0
-      seconds: 0
+      at: '06:00:00'
   action:
     service: switch.turn_off
     entity_id: switch.porch_switch
