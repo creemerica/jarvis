@@ -1,16 +1,16 @@
-build:
-  name: Build Status
-  entities:
-    - sensor.creemericajarvis_last_build_duration
-    - sensor.creemericajarvis_last_build_finished_at
-    - sensor.creemericajarvis_last_build_id
-    - sensor.creemericajarvis_last_build_started_at
-    - sensor.creemericajarvis_last_build_state
-    - sensor.creemericajarvis_state
+# build:
+#   name: Build Status
+#   entities:
+#     - sensor.creemericajarvis_last_build_duration
+#     - sensor.creemericajarvis_last_build_finished_at
+#     - sensor.creemericajarvis_last_build_id
+#     - sensor.creemericajarvis_last_build_started_at
+#     - sensor.creemericajarvis_last_build_state
+#     - sensor.creemericajarvis_state
 
-first_floor_lights:
-  name: 1st Floor Lights
-  entities:
-    - switch.fan_light_switch
-    - light.can_lights_level
-    - light.dining_room_level
+# first_floor_lights:
+#   name: 1st Floor Lights
+#   entities:
+#     - switch.fan_light_switch
+#     - light.can_lights_level
+#     - light.dining_room_level
