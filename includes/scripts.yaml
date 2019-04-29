@@ -25,4 +25,4 @@ reload_front_door_code:
         target:
           - !secret spencer_phone_num
           - !secret rose_phone_num
-          - !secret rose_mom_phone_num
+          # - !secret rose_mom_phone_num

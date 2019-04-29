@@ -26,6 +26,15 @@ discovery:
 # Sensors
 sensor:
 
+twilio:
+  account_sid: !secret twilio_sid
+  auth_token: !secret twilio_token
+
+notify:
+  - name: twilio_sms
+    platform: twilio_sms
+    from_number: !secret twilio_phone 
+
 # Text to speech
 tts:
   - platform: google_translate
