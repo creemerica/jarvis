@@ -37,7 +37,7 @@ var CONFIG = {
             type: HEADER_ITEMS.DATETIME,
             dateFormat: 'EEEE, LLLL dd', //https://docs.angularjs.org/api/ng/filter/date
          }
-      ]
+      ],
       right: [
          {
          type: HEADER_ITEMS.WEATHER,
@@ -62,7 +62,7 @@ var CONFIG = {
             temperature: '&sensor.dark_sky_temperature.state',
             temperatureUnit: '&sensor.dark_sky_temperature.attributes.unit_of_measurement',
          }
-      ],
+      ]
    },
 
    /*screensaver: {// optional. https://github.com/resoai/TileBoard/wiki/Screensaver-configuration
