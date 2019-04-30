@@ -8,7 +8,7 @@
 
 
 var CONFIG = {
-   customTheme: null, // CUSTOM_THEMES.TRANSPARENT, CUSTOM_THEMES.MATERIAL, CUSTOM_THEMES.MOBILE, CUSTOM_THEMES.COMPACT, CUSTOM_THEMES.HOMEKIT, CUSTOM_THEMES.WINPHONE, CUSTOM_THEMES.WIN95
+   customTheme: CUSTOM_THEMES.TRANSPARENT, // CUSTOM_THEMES.TRANSPARENT, CUSTOM_THEMES.MATERIAL, CUSTOM_THEMES.MOBILE, CUSTOM_THEMES.COMPACT, CUSTOM_THEMES.HOMEKIT, CUSTOM_THEMES.WINPHONE, CUSTOM_THEMES.WIN95
    transition: TRANSITIONS.ANIMATED_GPU, //ANIMATED or SIMPLE (better perfomance)
    entitySize: ENTITY_SIZES.NORMAL, //SMALL, BIG are available
    tileSize: 150,
@@ -22,23 +22,47 @@ var CONFIG = {
 
    // next fields are optional
    events: [],
-   timeFormat: 24,
+   timeFormat: 12,
    menuPosition: MENU_POSITIONS.LEFT, // or BOTTOM
    hideScrollbar: false, // horizontal scrollbar
    groupsAlign: GROUP_ALIGNS.HORIZONTALLY, // or VERTICALLY
 
    header: { // https://github.com/resoai/TileBoard/wiki/Header-configuration
       styles: {
-         padding: '30px 130px 0',
+         padding: '30px 130px 50px 0',
          fontSize: '28px'
       },
-      right: [],
       left: [
          {
             type: HEADER_ITEMS.DATETIME,
             dateFormat: 'EEEE, LLLL dd', //https://docs.angularjs.org/api/ng/filter/date
          }
       ]
+      right: [
+         {
+         type: HEADER_ITEMS.WEATHER,
+         styles: {
+            margin: '0 0 0'
+         },
+         icon: '&sensor.dark_sky_icon.state',
+         icons: {
+            'clear-day': 'clear',
+            'clear-night': 'nt-clear',
+            'cloudy': 'cloudy',
+            'rain': 'rain',
+            'sleet': 'sleet',
+            'snow': 'snow',
+            'wind': 'hazy',
+            'fog': 'fog',
+            'partly-cloudy-day': 'partlycloudy',
+            'partly-cloudy-night': 'nt-partlycloudy'
+         },
+         fields: {
+            summary: '&sensor.dark_sky_summary.state',
+            temperature: '&sensor.dark_sky_temperature.state',
+            temperatureUnit: '&sensor.dark_sky_temperature.attributes.unit_of_measurement',
+         }
+      ],
    },
 
    /*screensaver: {// optional. https://github.com/resoai/TileBoard/wiki/Screensaver-configuration
