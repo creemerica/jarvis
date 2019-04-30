@@ -40,33 +40,34 @@ var CONFIG = {
       ],
       right: [
          {
-         type: HEADER_ITEMS.WEATHER,
-         styles: {
-            margin: '0 0 0'
-         },
-         icon: '&sensor.dark_sky_icon.state',
-         icons: {
-            'clear-day': 'clear',
-            'clear-night': 'nt-clear',
-            'cloudy': 'cloudy',
-            'rain': 'rain',
-            'sleet': 'sleet',
-            'snow': 'snow',
-            'wind': 'hazy',
-            'fog': 'fog',
-            'partly-cloudy-day': 'partlycloudy',
-            'partly-cloudy-night': 'nt-partlycloudy'
-         },
-         fields: {
-            summary: '&sensor.dark_sky_summary.state',
-            temperature: '&sensor.dark_sky_temperature.state',
-            temperatureUnit: '&sensor.dark_sky_temperature.attributes.unit_of_measurement',
+            type: HEADER_ITEMS.WEATHER,
+            styles: {
+               margin: '0 0 0'
+            },
+            icon: '&sensor.dark_sky_icon.state',
+            icons: {
+               'clear-day': 'clear',
+               'clear-night': 'nt-clear',
+               'cloudy': 'cloudy',
+               'rain': 'rain',
+               'sleet': 'sleet',
+               'snow': 'snow',
+               'wind': 'hazy',
+               'fog': 'fog',
+               'partly-cloudy-day': 'partlycloudy',
+               'partly-cloudy-night': 'nt-partlycloudy'
+            },
+            fields: {
+               summary: '&sensor.dark_sky_summary.state',
+               temperature: '&sensor.dark_sky_temperature.state',
+               temperatureUnit: '&sensor.dark_sky_temperature.attributes.unit_of_measurement',
+            }
          }
       ]
    },
 
-   /*screensaver: {// optional. https://github.com/resoai/TileBoard/wiki/Screensaver-configuration
-      timeout: 300, // after 5 mins of inactive
+   screensaver: {// optional. https://github.com/resoai/TileBoard/wiki/Screensaver-configuration
+      timeout: 30, // after 5 mins of inactive
       slidesTimeout: 10, // 10s for one slide
       styles: { fontSize: '40px' },
       leftBottom: [{ type: SCREENSAVER_ITEMS.DATETIME }], // put datetime to the left-bottom of screensaver
@@ -84,7 +85,7 @@ var CONFIG = {
          },
          { bg: 'images/bg3.jpg' }
       ]
-   },*/
+   },
 
    pages: [
       {
