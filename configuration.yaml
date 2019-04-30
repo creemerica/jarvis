@@ -12,6 +12,9 @@ homeassistant:
   time_zone: America/Chicago
   # Customization file
   customize: !include customize.yaml
+  auth_providers:
+   - type: legacy_api_password
+     api_password: !secret http_password
 
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
