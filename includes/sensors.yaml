@@ -6,3 +6,16 @@
   scan_interval: 86400
 - platform: travisci
   api_key: !secret github_api
+- platform: darksky
+  api_key: !secret darksky_api
+  forecast:
+    - 0
+  hourly_forecast:
+    - 0
+    - 1
+  monitored_conditions:
+    - summary
+    - icon
+    - temperature
+    - precip_probability
+    - apparent_temperature
