@@ -72,18 +72,37 @@ var CONFIG = {
       styles: { fontSize: '40px' },
       leftBottom: [{ type: SCREENSAVER_ITEMS.DATETIME }], // put datetime to the left-bottom of screensaver
       slides: [
-         { bg: 'images/bg1.jpeg' },
+         // { bg: 'images/bg1.jpeg' },
          {
             bg: 'images/bg2.png',
-            rightTop: [ // put text to the 2nd slide
+            rightTop: [
                {
-                  type: SCREENSAVER_ITEMS.CUSTOM_HTML,
-                  html: 'Welcome to the <b>TileBoard</b>',
-                  styles: { fontSize: '40px' }
+                  type: HEADER_ITEMS.WEATHER,
+                  styles: {
+                     margin: '0 0 0'
+                  },
+                  icon: '&sensor.dark_sky_icon.state',
+                  icons: {
+                     'clear-day': 'clear',
+                     'clear-night': 'nt-clear',
+                     'cloudy': 'cloudy',
+                     'rain': 'rain',
+                     'sleet': 'sleet',
+                     'snow': 'snow',
+                     'wind': 'hazy',
+                     'fog': 'fog',
+                     'partly-cloudy-day': 'partlycloudy',
+                     'partly-cloudy-night': 'nt-partlycloudy'
+                  },
+                  fields: {
+                     summary: '&sensor.dark_sky_summary.state',
+                     temperature: '&sensor.dark_sky_temperature.state',
+                     temperatureUnit: '&sensor.dark_sky_temperature.attributes.unit_of_measurement',
+                  }
                }
             ]
          },
-         { bg: 'images/bg3.jpg' }
+         // { bg: 'images/bg3.jpg' }
       ]
    },
 
