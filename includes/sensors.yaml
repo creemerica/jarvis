@@ -19,3 +19,6 @@
     - temperature
     - precip_probability
     - apparent_temperature
+    - wind_speed
+    - pressure
+    - humidity
