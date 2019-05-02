@@ -114,7 +114,7 @@ var CONFIG = {
                title: '',
                items: [
                   {
-                     position: [2, 1],
+                     position: [0, 0],
                      height: 2,
                      //classes: ['-compact'], // enable this if you want a little square tile (1x1)
                      type: TYPES.WEATHER,
@@ -149,11 +149,6 @@ var CONFIG = {
                               + '&sensor.dark_sky_apparent_temperature.state'
                               + '&sensor.dark_sky_apparent_temperature.attributes.unit_of_measurement',
 
-                           // another custom line
-                           'Pressure '
-                              + '&sensor.dark_sky_pressure.state'
-                              + '&sensor.dark_sky_pressure.attributes.unit_of_measurement',
-
                            // yet another custom line
                            '&sensor.dark_sky_precip_probability.state'
                               + '&sensor.dark_sky_precip_probability.attributes.unit_of_measurement'
@@ -168,55 +163,53 @@ var CONFIG = {
                title: '',
                items: [
                   {
-                     position: [0, 0],
-                     width: 1,
-                     type: TYPES.SLIDER,
-                     //id: "input_number.volume",
-                     id: {state: 50}, // replace it with real string id
-                     state: false,
-                     title: 'Custom slider',
-                     subtitle: 'Example of subtitle',
-                     slider: {
-                        min: 0,
-                        max: 100,
-                        step: 2,
-                        request: {
-                           type: "call_service",
-                           domain: "input_number",
-                           service: "set_value",
-                           field: "value"
-                        }
+                      position: [0, 0],
+                      type: TYPES.SWITCH,
+                      title: 'Lights',
+                      subtitle: 'Living Room',
+                      id: 'group.first_floor_lights',
+                      icons: {
+                          on: 'mdi-lightbulb-on',
+                          off: 'mdi-lightbulb',
+                      },
+                      states: {
+                        on: "On",
+                        off: "Off"
+                     },
+                     icons: {
+                        on: "mdi-lightbulb-on",
+                        off: "mdi-lightbulb",
                      }
-                  },
-                  {
-                     position: [1, 0],
-                     width: 1,
-                     type: TYPES.SWITCH,
-                     //id: "switch.lights",
-                     id: {state: 'off'}, // replace it with real string id (e.g. "switch.lights")
-                     state: false,
-                     title: 'Custom switch',
-                     icons: {'off': 'mdi-volume-off', 'on': 'mdi-volume-high'}
+                      // state: false,
+                      // action: function(item, entity) {
+                      //     Api.send({
+                      //         type: 'call_service',
+                      //         domain: 'homeassistant',
+                      //         service: 'turn_off',
+                      //         service_data: {
+                      //             entity_id: item.id,
+                      //         }
+                      //     });
+                      // }
                   },
                   {
                      position: [0, 1],
-                     type: TYPES.ALARM,
-                     //id: "alarm_control_panel.home_alarm",
-                     id: { state: 'disarmed' }, // replace it with real string id
-                     title: 'Home Alarm',
-                     icons: {
-                        disarmed: 'mdi-bell-off',
-                        pending: 'mdi-bell',
-                        armed_home: 'mdi-bell-plus',
-                        armed_away: 'mdi-bell',
-                        triggered: 'mdi-bell-ring'
-                     },
+                     type: TYPES.FAN,
+                     title: 'Ceiling fan',
+                     id: '',
+                  },
+                  {
+                     position: [1, 0],
+                     type: TYPES.LOCK,
+                     id: '',
+                     title: 'Front door',
                      states: {
-                        disarmed: 'Disarmed',
-                        pending: 'Pending',
-                        armed_home: 'Armed home',
-                        armed_away: 'Armed away',
-                        triggered: 'Triggered'
+                        locked: "Locked",
+                        unlocked: "Unlocked"
+                     },
+                     icons: {
+                        locked: "mdi-lock",
+                        unlocked: "mdi-lock-open",
                      }
                   }
 
@@ -224,46 +217,16 @@ var CONFIG = {
             },
 
             {
-               title: 'Automations',
+               title: 'Scenes',
                items: [
                   {
-                     // please read README.md for more information
-                     // this is just an example
-                     position: [0, 0],
-                     height: 2, // 1 for compact
-                     //classes: ['-compact'],
-                     type: TYPES.WEATHER,
-                     id: {},
-                     state: function () {return 'Sunny'}, // https://github.com/resoai/TileBoard/wiki/Anonymous-functions
-                     icon: 'clear-day',
-                     icons: { 'clear-day': 'clear'},
-                     fields: {
-                        summary: 'Sunny',
-                        temperature: '18',
-                        temperatureUnit: 'C',
-                        windSpeed: '5',
-                        windSpeedUnit: 'kmh',
-                        humidity: '50',
-                        humidityUnit: '%',
-                        list: [
-                           'Feels like 16 C'
-                           /*
-                           'Feels like '
-                              + '&sensor.dark_sky_apparent_temperature.state'
-                              + '&sensor.dark_sky_apparent_temperature.attributes.unit_of_measurement',
-
-                           'Pressure '
-                              + '&sensor.dark_sky_pressure.state'
-                              + '&sensor.dark_sky_pressure.attributes.unit_of_measurement',
-
-                           '&sensor.dark_sky_precip_probability.state'
-                              + '&sensor.dark_sky_precip_probability.attributes.unit_of_measurement'
-                              + ' chance of rain'
-                           */
-                        ]
-                     }
+                      position: [0,0],
+                      type: TYPES.AUTOMATION,
+                      title: 'Goodnight',
+                      subtitle: 'Trigger Automation',
+                      id: '',
+                      icon: 'mdi-weather-night'
                   }
-
                ]
             }
          ]
@@ -271,7 +234,7 @@ var CONFIG = {
       {
          title: 'Second page',
          bg: 'images/bg2.png',
-         icon: 'mdi-numeric-2-box-outline',
+         icon: 'mdi-music',
          groups: [
             {
                title: '',
