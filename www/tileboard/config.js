@@ -29,7 +29,7 @@ var CONFIG = {
 
    header: { // https://github.com/resoai/TileBoard/wiki/Header-configuration
       styles: {
-         padding: '30px 130px 50px 0',
+         padding: '30px 130px 50px 50px',
          fontSize: '28px'
       },
       left: [
@@ -67,12 +67,11 @@ var CONFIG = {
    },
 
    screensaver: {// optional. https://github.com/resoai/TileBoard/wiki/Screensaver-configuration
-      timeout: 30, // after 5 mins of inactive
+      timeout: 30,
       slidesTimeout: 10, // 10s for one slide
       styles: { fontSize: '40px' },
-      leftBottom: [{ type: SCREENSAVER_ITEMS.DATETIME }], // put datetime to the left-bottom of screensaver
+      leftBottom: [{ type: SCREENSAVER_ITEMS.DATETIME }],
       slides: [
-         // { bg: 'images/bg1.jpeg' },
          {
             bg: 'images/bg2.png',
             rightTop: [
@@ -101,55 +100,72 @@ var CONFIG = {
                   }
                }
             ]
-         },
-         // { bg: 'images/bg3.jpg' }
+         }
       ]
    },
 
    pages: [
       {
-         title: 'Main page',
-         bg: 'images/bg1.jpeg',
+         title: 'Home',
+         bg: 'images/bg3.jpg',
          icon: 'mdi-home-outline', // home icon
          groups: [
             {
-               title: 'First group',
-               width: 2,
-               height: 3,
+               title: '',
                items: [
                   {
-                     position: [0, 0],
-                     width: 2,
-                     type: TYPES.TEXT_LIST,
-                     id: {}, // using empty object for an unknown id
-                     state: false, // disable state element
-                     list: [
-                        {
-                           title: 'Sun.sun state',
-                           icon: 'mdi-weather-sunny',
-                           value: '&sun.sun.state'
-                        },
-                        {
-                           title: 'Custom',
-                           icon: 'mdi-clock-outline',
-                           value: 'value'
-                        }
-                     ]
-                  },
-                  {
-                     position: [0, 1], // [x, y]
-                     width: 1,
-                     type: TYPES.SENSOR,
-                     id: 'updater.updater',
-                     state: '@attributes.release_notes' // https://github.com/resoai/TileBoard/wiki/Templates
+                     position: [2, 1],
+                     height: 2,
+                     //classes: ['-compact'], // enable this if you want a little square tile (1x1)
+                     type: TYPES.WEATHER,
+                     id: 'group.weather',
+                     state: '&sensor.dark_sky_summary.state', // label with weather summary (e.g. Sunny)
+                     icon: '&sensor.dark_sky_icon.state',
+                     //iconImage: '&sensor.dark_sky_icon.state', // use this one if you want to replace icon with image
+                     icons: {
+                        'clear-day': 'clear',
+                        'clear-night': 'nt-clear',
+                        'cloudy': 'cloudy',
+                        'rain': 'rain',
+                        'sleet': 'sleet',
+                        'snow': 'snow',
+                        'wind': 'hazy',
+                        'fog': 'fog',
+                        'partly-cloudy-day': 'partlycloudy',
+                        'partly-cloudy-night': 'nt-partlycloudy'
+                     },
+                     fields: { // most of that fields are optional
+                        summary: '&sensor.dark_sky_summary.state',
+                        temperature: '&sensor.dark_sky_temperature.state',
+                        temperatureUnit: '&sensor.dark_sky_temperature.attributes.unit_of_measurement',
+                        windSpeed: '&sensor.dark_sky_wind_speed.state',
+                        windSpeedUnit: '&sensor.dark_sky_wind_speed.attributes.unit_of_measurement',
+                        humidity: '&sensor.dark_sky_humidity.state',
+                        humidityUnit: '&sensor.dark_sky_humidity.attributes.unit_of_measurement',
+
+                        list: [
+                           // custom line
+                           'Feels like '
+                              + '&sensor.dark_sky_apparent_temperature.state'
+                              + '&sensor.dark_sky_apparent_temperature.attributes.unit_of_measurement',
+
+                           // another custom line
+                           'Pressure '
+                              + '&sensor.dark_sky_pressure.state'
+                              + '&sensor.dark_sky_pressure.attributes.unit_of_measurement',
+
+                           // yet another custom line
+                           '&sensor.dark_sky_precip_probability.state'
+                              + '&sensor.dark_sky_precip_probability.attributes.unit_of_measurement'
+                              + ' chance of rain'
+                        ]
+                     }
                   }
                ]
             },
 
             {
-               title: 'Second group',
-               width: 2,
-               height: 3,
+               title: '',
                items: [
                   {
                      position: [0, 0],
@@ -208,9 +224,7 @@ var CONFIG = {
             },
 
             {
-               title: '',
-               width: 1,
-               height: 3,
+               title: 'Automations',
                items: [
                   {
                      // please read README.md for more information
