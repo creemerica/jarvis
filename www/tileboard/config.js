@@ -163,16 +163,16 @@ var CONFIG = {
                title: '',
                items: [
                   {
-                      position: [0, 0],
-                      type: TYPES.SWITCH,
-                      title: 'Lights',
-                      subtitle: 'Living Room',
-                      id: 'group.first_floor_lights',
-                      icons: {
-                          on: 'mdi-lightbulb-on',
-                          off: 'mdi-lightbulb',
-                      },
-                      states: {
+                     position: [0, 0],
+                     type: TYPES.SWITCH,
+                     title: 'Lights',
+                     subtitle: 'Living Room',
+                     id: 'group.first_floor_lights',
+                     icons: {
+                       on: 'mdi-lightbulb-on',
+                       off: 'mdi-lightbulb',
+                     },
+                     states: {
                         on: "On",
                         off: "Off"
                      },
@@ -196,12 +196,12 @@ var CONFIG = {
                      position: [0, 1],
                      type: TYPES.FAN,
                      title: 'Ceiling fan',
-                     id: '',
+                     id: {},
                   },
                   {
                      position: [1, 0],
                      type: TYPES.LOCK,
-                     id: '',
+                     id: {},
                      title: 'Front door',
                      states: {
                         locked: "Locked",
@@ -224,7 +224,7 @@ var CONFIG = {
                       type: TYPES.AUTOMATION,
                       title: 'Goodnight',
                       subtitle: 'Trigger Automation',
-                      id: '',
+                      id: {},
                       icon: 'mdi-weather-night'
                   }
                ]
