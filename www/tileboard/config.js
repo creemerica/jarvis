@@ -29,7 +29,7 @@ var CONFIG = {
 
    header: { // https://github.com/resoai/TileBoard/wiki/Header-configuration
       styles: {
-         padding: '30px 130px 50px 50px',
+         padding: '30px 130px 0',
          fontSize: '28px'
       },
       left: [
@@ -176,10 +176,6 @@ var CONFIG = {
                         on: "On",
                         off: "Off"
                      },
-                     icons: {
-                        on: "mdi-lightbulb-on",
-                        off: "mdi-lightbulb",
-                     }
                       // state: false,
                       // action: function(item, entity) {
                       //     Api.send({
@@ -196,7 +192,11 @@ var CONFIG = {
                      position: [0, 1],
                      type: TYPES.FAN,
                      title: 'Ceiling fan',
-                     id: {},
+                     id: 'fan.living_room',
+                     icons: {
+                       on: 'mdi-fan',
+                       off: 'mdi-fan-off',
+                     },
                   },
                   {
                      position: [1, 0],
@@ -226,9 +226,25 @@ var CONFIG = {
                       subtitle: 'Trigger Automation',
                       id: {},
                       icon: 'mdi-weather-night'
+                  },
+                  {
+                      position: [0,1],
+                      type: TYPES.AUTOMATION,
+                      title: 'Work',
+                      subtitle: 'Trigger Automation',
+                      id: {},
+                      icon: 'mdi-briefcase'
+                  },
+                  {
+                      position: [1,0],
+                      type: TYPES.AUTOMATION,
+                      title: 'Work',
+                      subtitle: 'Trigger Automation',
+                      id: {},
+                      icon: 'mdi-briefcase'
                   }
                ]
-            }
+            }, 
          ]
       },
       {
@@ -248,27 +264,55 @@ var CONFIG = {
                      type: TYPES.TEXT_LIST,
                      id: {}, // using empty object for an unknown id
                      state: false, // disable state element
-                     list: [
-                        {
-                           title: 'Read',
-                           icon: 'mdi-numeric-1-box-outline',
-                           value: 'README.md'
+                     list: [1,2,3,4,5].map(function (id) {
+                      return {
+                        title: function () {
+                          return 'test';
+
+                          // var request = new XMLHttpRequest();
+
+                          // request.onreadystatechange = function() {
+                          //     if (this.readyState == 4 && this.status == 200) {
+                          //         console.log(this.responseText);
+                          //         return this.responseText;
+                          //     }
+                          // };
+
+                          // request.setRequestHeader('Authorization','Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiYmMyMjhiZDk2ZDA0ZDRmYjY1NGY1MWYxOWMxYmE2YSIsImlhdCI6MTU1NzgxNTQwNywiZXhwIjoxODczMTc1NDA3fQ.QLghUweuxsQdKJGmcRWx3OxRfi8iqlCX3Sav7qMVRMY');
+                          // request.open('GET', 'http://192.168.1.237:8123/api/calendars/calendar.family?start=2019-05-14T00:00:00Z&end=2019-05-21T00:00:00Z');
+                          // request.send();
+                          
+
+                        }, 
+                        value: function() {
+                          return this.states['calendar.family'].attributes.message
                         },
-                        {
-                           title: 'Ask on forum',
-                           icon: 'mdi-numeric-2-box-outline',
-                           value: 'home-assistant.io'
-                        },
-                        {
-                           title: 'Open an issue',
-                           icon: 'mdi-numeric-3-box-outline',
-                           value: 'github.com'
-                        }
-                     ]
+                      }
+                     })
+                     // list: [
+                     //    {
+                     //      title: function () {
+                     //        var date = this.states['calendar.family'].attributes.start_time;
+                     //        return  moment(date).format("MMM Do");
+                     //      },
+                     //      value: function () {
+                     //        return this.states['calendar.family'].attributes.message;
+                     //      },
+                     //    },
+                     // ]
                   }
                ]
             },
          ]
       }
    ],
+
+   events: [
+      {
+         command: 'notify',
+         action: function(e) {
+            Noty.addObject(e);
+         }
+      }
+   ]
 }

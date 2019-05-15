@@ -38,6 +38,10 @@ notify:
     platform: twilio_sms
     from_number: !secret twilio_phone 
 
+google:
+  client_id: !secret google_client_id
+  client_secret: !secret google_secret
+
 # Text to speech
 tts:
   - platform: google_translate
