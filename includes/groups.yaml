@@ -26,6 +26,6 @@ first_floor_lights:
   
 christmas_lights:
   name: Christmas Lights
-  entites:
+  entities:
     - switch.jasco_products_14288_duplex_receptacle_switch
     - switch.jasco_products_14284_outdoor_smart_switch_switch
