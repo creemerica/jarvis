@@ -16,14 +16,14 @@
     below: 0.5
   action:
     service: switch.turn_on
-    entity_id: switch.porch_light
+    entity_id: switch.jasco_products_14291_in_wall_smart_switch_switch_2
 - alias: Turn off porch light in the morning
   trigger:
     - platform: time
       at: '06:00:00'
   action:
     service: switch.turn_off
-    entity_id: switch.porch_light
+    entity_id: switch.jasco_products_14291_in_wall_smart_switch_switch_2
 - alias: 'Christmas Lights On'
   trigger:
     platform: numeric_state
