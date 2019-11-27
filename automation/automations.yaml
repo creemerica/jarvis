@@ -16,11 +16,27 @@
     below: 0.5
   action:
     service: switch.turn_on
-    entity_id: switch.porch_switch
+    entity_id: switch.porch_light
 - alias: Turn off porch light in the morning
   trigger:
     - platform: time
       at: '06:00:00'
   action:
     service: switch.turn_off
-    entity_id: switch.porch_switch
+    entity_id: switch.porch_light
+- alias: 'Christmas Lights On'
+  trigger:
+    platform: numeric_state
+    entity_id: sun.sun
+    value_template: '{{ state.attributes.elevation }}'
+    below: 0.5
+  action:
+    service: switch.turn_on
+    entity_id: group.christmas_lights
+- alias: 'Christmas Lights Off'
+  trigger:
+  - platform: time
+    at: '06:00:00'
+  action:
+    service: switch.turn_off
+    entity_id: group.christmas_lights

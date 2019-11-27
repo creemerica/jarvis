@@ -23,3 +23,9 @@ first_floor_lights:
     - switch.fan_light_switch
     - light.can_lights_level
     - light.dining_room_level
+  
+christmas_lights:
+  name: Christmas Lights
+  entites:
+    - switch.jasco_products_14288_duplex_receptacle_switch
+    - switch.jasco_products_14284_outdoor_smart_switch_switch
