@@ -3,8 +3,14 @@
   zones:
     11:
       name: Living Room
+    12:
+      name: Garage
+    13:
+      name: Upstairs Hall
+    14:
+      name: Master Bedroom
   sources:
-    1: 
+    4: 
       name: AirPlay
     5:
       name: Chromecast
